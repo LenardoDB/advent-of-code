@@ -22,6 +22,12 @@ abstract class PuzzleHelper {
     abstract public function stepOne();
     abstract public function stepTwo();
 
+    public function answer(string $step,string $answer): void
+    {
+        var_dump($answer);
+        echo 'Answer from step ' . $step . ': ' . $answer . PHP_EOL . '<br>';
+    }
+
     public function run()
     {
         $this->stepOne();

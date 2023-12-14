@@ -54,13 +54,53 @@ class Day2 extends PuzzleHelper
             }
         }
 
-        echo 'Answer from step one: ' . $ans . PHP_EOL . '<br>';
+        $this->answer('one', $ans);
     }
 
     public function stepTwo()
     {
-        $data = $this->game();
+        $lines = $this->game();
+        $answer = 0;
 
-        echo 'Answer from step two: ' . PHP_EOL;
+        foreach($lines as $line) {
+            $red = 0;
+            $blue = 0;
+            $green = 0;
+
+            $gameData = explode(":", $line);
+            $games = explode(";", $gameData[1]);
+
+            foreach($games as $game) {
+                $cubes = explode(",", $game);
+
+                foreach($cubes as $cube) {
+                    if(strpos($cube, 'red') !== false) {
+                        $count = (int) (str_replace('red', '', $cube));
+                        if($count > $red) {
+                            $red = $count;
+                        }
+                    }
+
+                    if(strpos($cube, 'green') !== false) {
+                        $count = (int) (str_replace('green', '', $cube));
+                        if($count > $green) {
+                            $green = $count;
+                        }
+                    }
+
+                    if(strpos($cube, 'blue') !== false) {
+                        $count = (int) (str_replace('blue', '', $cube));
+                        if($count > $blue) {
+                            $blue = $count;
+                        }
+                    }
+                }
+            }
+
+            $total = $red * $green * $blue;
+            $answer += $total;
+        }
+
+        $this->answer('two', $answer);
     }
 }
