@@ -2,20 +2,13 @@
 
 namespace AOC\Puzzle;
 
-class Day1 
+use AOC\Helper\PuzzleHelper;
+
+class Day1 extends PuzzleHelper
 {
-
-    public function __construct(
-        public string $input
-    )
-    {
-        $this->input = file_get_contents($input);
-    }
-
     public function stepOne()
     {
-        $data = $this->input;
-        $words = preg_split("/\s+/", $data);
+        $words = $this->game();
         $sum = 0;
 
         foreach ($words as $word) {
@@ -26,13 +19,12 @@ class Day1
             $sum += $additionalNumber;
         }
 
-        echo 'Answer from step one: ' . $sum . PHP_EOL . '<br>';
+        $this->answer('one', $sum);
     }
 
     public function stepTwo()
     {
-        $data = $this->input;
-        $words = preg_split("/\s+/", $data);
+        $words = $this->game();
         $sum1 = 0;
         $digits = [
             'one' => 1,
@@ -61,12 +53,6 @@ class Day1
             $sum1 += intval($numbers[0] . $numbers[count($numbers) - 1]);
         }
 
-        echo 'Answer from step two: ' . $sum1 . PHP_EOL;
-    }
-
-    public function run()
-    {
-        $this->stepOne();
-        $this->stepTwo();
+        $this->answer('two', $sum1);
     }
 }

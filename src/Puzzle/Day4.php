@@ -40,7 +40,7 @@ class Day4 extends PuzzleHelper
             if (!isset($scratchCards[$counter])) {
                 $scratchCards[$counter] = 0;
             }
-            
+
             $scratchCards[$counter] += 1;
 
             $winningNumbers = $this->getWinningNumbers($card);

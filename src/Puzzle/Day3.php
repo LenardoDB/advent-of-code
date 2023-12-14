@@ -121,7 +121,7 @@ class Day3 extends PuzzleHelper
                             // $partAfter = substr($lines[$line -1], $i, 3);
                             // var_dump('before: ' . $partBefore . ' after: ' . $partAfter);
                             $part = substr($lines[$line -1], $i -2, 6);
-                            var_dump($part);
+                            // var_dump($part);
                         }
                     }
                 }
@@ -131,7 +131,7 @@ class Day3 extends PuzzleHelper
             // var_dump($gears);
 
 
-            var_dump('<br>');
+            // var_dump('<br>');
         }
     }
 }

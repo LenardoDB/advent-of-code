@@ -9,7 +9,15 @@ use AOC\Puzzle\Day4;
 
 require_once __DIR__ . '/vendor/autoload.php';
 
-$quiz = new Day4('./input/day4.txt');
-$anwser = $quiz->run();
+$testMode = true;
+// $quiz = new Day4(4, $testMode);
+// $anwser = $quiz->run();
 
-echo $anwser;	
+// echo $anwser;	
+
+$days = [
+    new Day1(1, $testMode),
+    new Day2(2, $testMode),
+    new Day3(3, $testMode),
+    new Day4(4, $testMode),
+];
