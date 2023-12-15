@@ -12,18 +12,29 @@ abstract class PuzzleHelper {
             $input = './input/day' . $input . '.txt';
         }
         $this->input = file_get_contents($input);
+
+        $this->initialize();
         $this->run();
     }
 
-    public function game()
+    public function game(bool $asArray = true)
     {
-        $data = explode("\n", trim($this->input));
-
-        return array_map('trim', $data);
+        $data = $this->input;
+        if( $asArray ) {
+            return array_map('trim', explode("\n", trim($data)));
+        } else {
+            return trim($data);
+        }
     }
 
     abstract public function stepOne();
     abstract public function stepTwo();
+
+    protected function initialize(): void
+    {
+        // void method, can be used before part1 & part2 is called
+    }
+
 
     public function answer(string $step,string $answer): void
     {
